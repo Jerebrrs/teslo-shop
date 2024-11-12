@@ -10,11 +10,9 @@ import { useState } from 'react';
 import { Autoplay, FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import Image from 'next/image';
 
-interface Url {
-    url: string
-}
+
 interface Props {
-    images: Url[];
+    images: string[];
     title: string;
     className?: string;
 }
@@ -38,7 +36,7 @@ export const ProductSlidesShow = ({ images, title, className }: Props) => {
                 thumbs={{
                     swiper: thumbsSwiper && !thumbsSwiper.destroy ? thumbsSwiper : null
                 }}
-                modules={[FreeMode, Navigation, Thumbs,Autoplay]}
+                modules={[FreeMode, Navigation, Thumbs, Autoplay]}
                 className="mySwiper2"
             >
                 {images.map((image, index) => (
@@ -46,7 +44,7 @@ export const ProductSlidesShow = ({ images, title, className }: Props) => {
                         <Image
                             width={1024}
                             height={800}
-                            src={`/products/${image.url}`}
+                            src={`/products/${image}`}
                             alt={title}
                             className='rounded-lg object-fill'
                         />
@@ -69,7 +67,7 @@ export const ProductSlidesShow = ({ images, title, className }: Props) => {
                         <Image
                             width={300}
                             height={300}
-                            src={`/products/${image.url}`}
+                            src={`/products/${image}`}
                             alt={title}
                             className='rounded'
                         />

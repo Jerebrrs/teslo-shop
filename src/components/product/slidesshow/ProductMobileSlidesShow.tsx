@@ -8,11 +8,9 @@ import './slideshow.css';
 import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
 
 
-interface Url {
-    url: string
-}
+
 interface Props {
-    images: Url[];
+    images: string[];
     title: string;
     className?: string;
 }
@@ -35,12 +33,12 @@ export const ProductMobileSlidesShow = ({ images, title, className }: Props) => 
                 modules={[FreeMode, Autoplay, Pagination]}
                 className="mySwiper2"
             >
-                {images.map((image, index) => (
-                    <SwiperSlide key={index}>
+                {images.map((image) => (
+                    <SwiperSlide key={image}>
                         <Image
                             width={400}
                             height={300}
-                            src={`/products/${image.url}`}
+                            src={`/products/${image}`}
                             alt={title}
                             className='object-fill'
                         />

@@ -1,3 +1,5 @@
+export * from "./product/stock-label/StockLabel";
+
 export * from "./product/sise-selector/SizeSelector";
 export * from "./product/quantity-selector/QuantitySelector";
 export * from "./product/slidesshow/ProductSlidesShow";
