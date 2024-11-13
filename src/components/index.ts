@@ -13,3 +13,4 @@ export * from "./products/product-grid/ProductGrid";
 export * from "./products/product-grid/ProductGridItems";
 export * from "./ui/pagination/Pagination";
 export * from "./ui/footer/Footer";
+export * from "./provider/Provider";

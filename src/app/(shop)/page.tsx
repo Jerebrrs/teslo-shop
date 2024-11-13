@@ -1,7 +1,7 @@
-export const revalidate = 60; //revalida la informacion de la base de datos cada 60 segundos.
-import { getPaginatedProductWithImages } from "@/actions";
-import { Pagination, ProductGrid, Title } from "@/components";
-import { redirect } from "next/navigation";
+export const revalidate = 60; // 60 segundos
+import { redirect } from 'next/navigation';
+import { getPaginatedProductWithImages } from '@/actions';
+import { Pagination, ProductGrid, Title } from '@/components';
 
 interface Props {
   searchParams: {
@@ -9,22 +9,33 @@ interface Props {
   }
 }
 
-
 export default async function Home({ searchParams }: Props) {
-  const page = searchParams.page ? parseInt(searchParams.page) : 1
+
+  const page = searchParams.page ? parseInt(searchParams.page) : 1;
+
   const { products, totalPage } = await getPaginatedProductWithImages({ page });
 
+
   if (products.length === 0) {
-    redirect('/')
+    redirect('/');
   }
 
 
   return (
     <>
-      <Title title="Tienda" subtitle="Todos Los Productos" className="mb-2" />
+      <Title
+        title="Tienda"
+        subtitle="Todos los productos"
+        className="mb-2"
+      />
 
-      <ProductGrid products={products} />
+      <ProductGrid
+        products={products}
+      />
+
+
       <Pagination totalPage={totalPage} />
+
     </>
   );
 }
